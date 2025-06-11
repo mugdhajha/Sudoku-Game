@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sudoku</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div id="heading">
+                <h1>Sudoku Zen: The Art of Numbers</h1>
+                <img id="icon" src="https://www.svgrepo.com/show/210347/sudoku.svg" alt="">
+            </div>
+            <button onclick="generateSudoku()">New Game</button>
+            <button onclick="resetBoard()">Reset</button>
+            <button onclick="checkSolution()">Check Solution</button>
+            <div id="stats">
+                <p><strong>Puzzles Solved:</strong> <span id="solvedCount">0</span></p>
+                <p><strong>Time Taken:</strong> <span id="timer">00:00</span></p>
+                <p><strong>Best Time:</strong> <span id="bestTime">--:--</span></p>
+                <button onclick="resetStats()">Reset Stats</button>
+            </div>
+
+            <div class="board" id="sudoku-board"></div>
+            <p id="message"></p>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
