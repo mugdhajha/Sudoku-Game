@@ -96,12 +96,6 @@ button:hover {
       box-sizing: border-box;
       outline: none;
     }
-    .border-right{
-        margin-right: 8px;
-    }
-    .border-bottom{
-        margin-bottom: 8px;
-    }
     /* Prefilled cell style */
     .prefilled {
       background-color: #e154e1;
