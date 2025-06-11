@@ -45,7 +45,6 @@ function resetStats() {
 
 // Generating an empty board
 function generateEmptyBoard(){
-    // return Array.from({ length: 9 }, () => Array(9).fill(0));
     let board = [];
     for(let r=0;r<9;r++){
         board[r]=[];
@@ -150,12 +149,6 @@ function renderBoard(){
             }
             cell.dataset.row = r;
             cell.dataset.col = c;
-            if(c==2||c==5){
-                cell.classList.add('border-right');
-            }
-            if(r==2||r==5){
-                cell.classList.add('border-bottom');
-            }
             container.appendChild(cell);
         }
     }
