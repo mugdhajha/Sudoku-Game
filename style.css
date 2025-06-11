@@ -84,8 +84,6 @@ button:hover {
     }
     /* Input cells */
     input {
-      /* width: 35px;
-      height: 35px; */
       width: 100%;
       height: clamp(35px, 9vw, 35px);
       text-align: center;
