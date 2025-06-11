@@ -22,7 +22,7 @@ body {
 .container {
     width: 90%;
     max-width: 600px;
-    height: 85vh;
+    height: 83vh;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
@@ -43,14 +43,6 @@ body {
     vertical-align: middle;
 }
 button {
-    /* background: linear-gradient(45deg, #ff5e62, #ff9966);
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; */
     background-color: #9f12ce;
     border: none;
     border-radius: 5px;
