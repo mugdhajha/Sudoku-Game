@@ -184,9 +184,12 @@ function getCurrentBoard() {
             
           }
         }
-        if(allCorrect && input.disabled && +input.value !== solution[row][col]) {
+        
+      });
+         if(allCorrect){// && input.disabled && +input.value !== solution[row][col]) {
             stopTimer();
             puzzlesSolved= parseInt(puzzlesSolved) + 1;
+            console.log("Puzzles solved: " + puzzlesSolved);
             localStorage.setItem("puzzlesSolved", puzzlesSolved);
             document.getElementById("solvedCount").textContent = puzzlesSolved;
             // Save best time if better
@@ -202,14 +205,16 @@ function getCurrentBoard() {
         else{
             document.getElementById("message").textContent = "Incorrect! Please try again.";
         }
-      });
     }
 // Clear only user-entered values
     function resetBoard() {
         let sure=confirm("Are you sure you want to reset the board? This will clear all your inputs.");
         if (!sure) return;
       const inputs = document.querySelectorAll("#sudoku-board input:not(.prefilled)");
-      inputs.forEach(input => input.value = "");
+      inputs.forEach(input =>{
+         input.value = "";
+          input.style.backgroundColor = "#fff"; // Reset background color
+      });
       document.getElementById("message").textContent = "";
     }
 
@@ -221,5 +226,33 @@ function getCurrentBoard() {
         startTimer();
     }
 
-    // Generate puzzle on initial load
+    function hint(){
+       const inputs = document.querySelectorAll("#sudoku-board input:not(.prefilled)");
+  const emptyInputs = [];
+
+  inputs.forEach(input => {
+    if (input.value === "") {
+      emptyInputs.push(input);
+    }
+  });
+
+  if (emptyInputs.length === 0) {
+    alert("No more hints available!");
+    return;
+  }
+
+  // Choose a random empty input
+  const randomInput = emptyInputs[Math.floor(Math.random() * emptyInputs.length)];
+
+  // Get the row and column from data attributes
+  const row = parseInt(randomInput.dataset.row);
+  const col = parseInt(randomInput.dataset.col);
+
+  // Fill with correct value from solution array
+  randomInput.value = solution[row][col];
+  randomInput.disabled = true; // Disable the input after hint
+  randomInput.style.backgroundColor = "#d4edda"; // Change background color to indicate it's filled
+  randomInput.style.color = "#000"; // Ensure text is visible
+}
+      // Generate puzzle on initial load
     window.onload = generateSudoku;
